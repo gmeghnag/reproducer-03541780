@@ -1,0 +1,16 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  name: greetings-el
+  namespace: reproducer-03541780
+spec:
+  serviceAccountName: pipeline
+  triggerGroups:
+  - name: reproducer-03541780
+    interceptors:
+    - ref:
+        name: "cel"
+    triggerSelector:
+      labelSelector:
+        matchLabels:
+          type: reproducer-03541780

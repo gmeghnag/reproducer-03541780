@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: greetings
+  namespace: reproducer-03541780
+spec:
+  params:
+    - name: FIRST_GREETING
+      type: string
+  tasks:
+    - name: first-greeting
+      taskRef:
+        name: greet-someone
+      params:
+        - name: WHO
+          value: $(params.FIRST_GREETING)

@@ -1,0 +1,13 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: Trigger
+metadata:
+  labels:
+    type: reproducer-03541780
+  name: trigger
+  namespace: reproducer-03541780
+spec:
+  bindings:
+    - name: firstgreeting
+      value: $(body.FIRST_GREETING)
+  template:
+    ref: greetings-tt

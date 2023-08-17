@@ -1,0 +1,9 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerBinding
+metadata:
+  name: greetings-tb
+  namespace: reproducer-03541780
+spec:
+  params:
+  - name: FIRST_GREETING
+    value: $(body.FIRST_GREETING)
